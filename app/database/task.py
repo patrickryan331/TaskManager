@@ -11,7 +11,7 @@ def output_formatter(results):
             "is_done": result[4]
         }
         out.append(res)
-        return out
+    return out
     
 
 def scan():
@@ -37,17 +37,17 @@ def insert(task_data):
         task_data.get("summary"),
         task_data.get("description")
     )
-statement =  """
-INSERT INTO task (
-    name,
-    summary,
-    description
-    ) VALUES (?,?,?)
-"""
+    statement =  """
+    INSERT INTO task (
+        name,
+        summary,
+        description
+        ) VALUES (?,?,?)
+    """
 
-conn = get_db()
-conn.execute(statement, task_tuple)
-conn.commit()
+    conn = get_db()
+    conn.execute(statement, task_tuple)
+    conn.commit()
 
 def update_by_id(task_data,task_id):
     task_tuple = (

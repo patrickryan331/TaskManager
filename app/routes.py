@@ -10,12 +10,12 @@ app = Flask(__name__)
 
 @app.get("/tasks")
 def get_all_tasks():
-    tasks_list = task.scan();
+    tasks_list = task.scan()
     out = {
         "tasks": tasks_list,
         "ok":True
     }
-    return out;
+    return out
 
 @app.get("/tasks/<int:pk>/")
 def get_single_task(pk):
@@ -25,7 +25,8 @@ def get_single_task(pk):
             "task": single_task,
             "ok":True
         }
-        return out;
+        return out
+    
     out  = {
         "ok":False,
         "message": "Not Found"
